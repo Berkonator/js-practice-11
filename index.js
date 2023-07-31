@@ -136,11 +136,29 @@ console.log(checkValueAndType(new Set([1, 2, 3, "a", "b", "c"]), "b"));
  * Повертаємо - Відсортований масив із рядковими елементами.
  */
 function setToArray(mySet) {
+  const iterator = mySet.entries();
+  const arr = Array.from(iterator);
+  const arr1 = arr.flat(1);
+  return arr1.filter(item => {
+    if (mySet.has(item)) {
+        mySet.delete(item);
+    } else {
+        if(typeof item === 'number'){
+          mySet.delete(item);
+        } else {
+          return item;
+        }
+    };
+  });
+
+  
+  
   // Конвертуємо множину в масив за допомогою деструктурізації.
   // Використовуємо метод filter для створення нового масиву, що містить лише рядкові елементи.
   // Використовуємо метод sort для сортування рядкових елементів в алфавітному порядку.
   // Повертаємо оброблений масив.
 }
+
 
 // Приклад використання функції setToArray
 console.log("Завдання: 6 ==============================");
@@ -154,6 +172,10 @@ console.log(setToArray(new Set([1, 2, 3, "b", "a", "c"])));
  * arr - Масив, з якого потрібно видалити дублікати.
  */
 function removeDuplicatesInPlace(arr) {
+  return new Set(arr)
+
+  
+  
   // Створення множини для збереження унікальних елементів
   // Перебір елементів масиву за допомогою циклу for від 0 до довжини масиву
   // Перевірка, чи елемент вже присутній у множині
@@ -178,6 +200,14 @@ console.log(removeDuplicatesInPlace([1, 2, 2, 3, 3, 4, 5, 5]));
  * Повертаємо - true, якщо множини не мають спільних елементів, інакше false.
  */
 function areDisjoint(set1, set2) {
+  for(let item1 of set1){
+    for(let item2 of set2){
+      if(item1 === item2){
+        return false
+      }
+      
+    }
+  }
   // Перебираємо першу множину за допомогою оператору for of
   // Якщо знайдено спільний елемент з другою множиною,використовуємо метод has, повертаємо false
   //Якщо немає  спільних елементів повертаємо true
