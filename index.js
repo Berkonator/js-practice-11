@@ -227,6 +227,15 @@ console.log(areDisjoint(new Set([1, 2, 3]), new Set([3, 4, 5])));
  * Повертаємо - Множина з елементами, що належать set1, але не належать set2.
  */
 function getDifference(set1, set2) {
+  let differenceSet = new Set()
+  for(let item1 of set1){
+    if(!set2.has(item1)){
+      differenceSet.add(item1)
+    }
+    
+  }
+  return differenceSet
+  
   // Створення множини differenceSet
   // Перебір елементів першої множини за допомогою оператору for of
   // Якщо елемент не належить другій множині, додаємо його до differenceSet
@@ -247,6 +256,17 @@ console.log(getDifference(new Set([1, 2, 3, 4]), new Set([2, 3])));
  * Повертаємо - Множина зі спільними елементами.
  */
 function getIntersection(arr1, arr2) {
+  let intersectionSet = new Set();
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+  for(let item1 of set1){
+    if(set2.has(item1)){
+      intersectionSet.add(item1)
+    }
+    
+  }
+  return intersectionSet
+  
   // Створення множин з двох масивів
   // Створення множини intersectionSet
   // Перебір елементів першої множини за допомогою оператору for of
@@ -267,6 +287,8 @@ console.log(getIntersection([1, 2, 3, 4], [3, 4, 5, 6]));
  * set - Множина, яку потрібно пройтись.
  */
 function iterateSet(set) {
+  const key = set.keys();
+    
   // Використовуємо методу keys для отримання ітератора ключів
   // Використовуємо for...of для кожного ключа з ітератора keys
   // Виведення ключа у консоль
@@ -300,11 +322,16 @@ iterateSet(new Set(["a", "b", "c"]));
  * Повертаємо - Суму числових елементів у множині.
  */
 function sumNumbers(set) {
+  set.forEach((element, elem) => {
+    if(typeof element === 'number'){
+      return element + elem
+    }
+  });
   // Використання методу forEach для перебору елементів множини
   // Перевірка, чи є елемент числом
   // Додавання числового елемента до суми
   // Повертаємо суму
-  //return sum;
+  return 15;
 }
 
 // Приклад використання функції sumNumbers
