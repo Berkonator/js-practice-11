@@ -287,7 +287,21 @@ console.log(getIntersection([1, 2, 3, 4], [3, 4, 5, 6]));
  * set - Множина, яку потрібно пройтись.
  */
 function iterateSet(set) {
-  const key = set.keys();
+  
+  const keys = set.keys();
+  const values = set.values();
+  const entries = set.entries();
+
+    for(let key of keys){
+        console.log(key)
+    }
+
+       for(let value of values){
+        console.log(value)
+    }
+        for(let entry of entries){
+        console.log(entry)
+    }
     
   // Використовуємо методу keys для отримання ітератора ключів
   // Використовуємо for...of для кожного ключа з ітератора keys
@@ -322,16 +336,21 @@ iterateSet(new Set(["a", "b", "c"]));
  * Повертаємо - Суму числових елементів у множині.
  */
 function sumNumbers(set) {
-  set.forEach((element, elem) => {
+  let total = 0
+    
+  set.forEach((element) => {
     if(typeof element === 'number'){
-      return element + elem
+       total += element
     }
   });
+
+    return total;
+  
   // Використання методу forEach для перебору елементів множини
   // Перевірка, чи є елемент числом
   // Додавання числового елемента до суми
   // Повертаємо суму
-  return 15;
+  
 }
 
 // Приклад використання функції sumNumbers
